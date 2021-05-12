@@ -1,0 +1,253 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static  'assets/css/details-form.css' %}">
+   <link rel="stylesheet" href="{% static  'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/metisMenu.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/slicknav.min.css' %}">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- Start datatable css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+    <!-- others css -->
+     <link rel="stylesheet" href="{% static  'assets/css/typography.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/default-css.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/responsive.css' %}">
+    <!-- modernizr css -->
+    <script src="{% static  'assets/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loader">
+            <h1>Hello</h1>
+        </div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="#"><img src="{% static 'assets/images/logo/download.jpg' %}" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Users
+                                    </span></a>
+                                <ul class="collapse">
+                                    <li><a href="/add_user">Add User</a></li>
+                                    <li><a href="/view_users">View Users</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/success"><i class="ti-palette"></i> <span>Identify Person</span></a></li>
+
+
+                            <li><a href="/Track"><i class="ti-map-alt"></i> <span>Track Person</span></a></li>
+
+                            <li>
+                                <a href="/reports"><i class="ti-pie-chart"></i><span>Reports</span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>Citizens</span></a>
+                                <ul class="collapse">
+                                    <li><a href="/add_citizen">Add Citizen</a></li>
+                                    <li><a href="/view_citizens">View Citizens</a></li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="row align-items-center">
+                        <div align="right" style="float: right;margin-left:auto; margin-right:0">
+                            <div class="col-sm-12 clearfix">
+                                <div class="user-profile pull-right">
+                                    <img class="avatar user-thumb" src="{% static 'assets/images/author/avatar.png' %}" alt="avatar">
+                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></h4>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/logout">Log Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="main-content-inner">
+                <form action="/missing_details/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+
+                    <h2>Add Missing Details Here</h2>
+                    <div>
+                        <label for="Person_Id">Person ID</label>
+                        <div>
+                            <input name="mid" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="fullname">Full Name</label>
+                        <div>
+                            <input name="fullname" type="text">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="Age">
+                            Age
+                        </label>
+                        <div>
+                            <input name="Age" type="number">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="Address">
+                            Address
+                        </label>
+                        <div>
+                            <textarea name="Address" spellcheck="true" rows="3" cols="10" tabindex="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="contact">
+                            Contact
+                        </label>
+                        <div>
+                            <input type="text" name="contact" pattern="[0-9]{10}" title="Ten digits code required" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="dt_missing">
+                            Missing Date
+                        </label>
+                        <div>
+                            <input type="date" name="dt_missing">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="dt_missing">
+                            Gaurdian Email-Id
+                        </label>
+                        <div>
+                            <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="image">
+                            Image
+                        </label>
+                        <div>
+                            <input type="file"  name="image">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="employee_id">Employee_Id</label>
+                        <div>
+                            <input name="e_id" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input id="saveForm" name="saveForm" type="submit" value="Submit">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2019. All right reserved. </p>
+            </div>
+        </footer>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- offset area start -->
+
+
+    <!-- offset area end -->
+
+    <!-- bootstrap 4 js -->
+     <script src="{% static  'assets/js/popper.min.js' %}"></script>
+    <script src="{% static  'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static  'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static  'assets/js/metisMenu.min.js' %}"></script>
+    <script src="{% static  'assets/js/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static  'assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Start datatable js -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <!-- others plugins -->
+    <script src="{% static  'assets/js/plugins.js' %}"></script>
+    <script src="{% static  'assets/js/scripts.js' %}"></script>
+</body>
+
+</html>
